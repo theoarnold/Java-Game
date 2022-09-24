@@ -17,7 +17,12 @@ public class Game extends Canvas implements Runnable{
 
         handler = new Handler();
 
-        handler.addObject(new Box (100, 100));
+        this.addKeyListener(new KeyInput(handler));
+
+        //game objects
+        handler.addObject(new Box (100, 100, ID.Block));
+        handler.addObject(new Player (50, 50, ID.Player, handler));
+
     }
     private void start(){
         isRunning = true;
@@ -71,7 +76,7 @@ public class Game extends Canvas implements Runnable{
         }
         Graphics g = bs.getDrawGraphics();
 
-        g.setColor(Color.red);
+        g.setColor(Color.green);
         g.fillRect(0, 0, 1000, 563);
 
         handler.render(g);
