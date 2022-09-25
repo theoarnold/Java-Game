@@ -5,18 +5,31 @@ import java.awt.Color;
 public class Bullet extends GameObject{
 
     private Handler handler;
-
+    private double direction;
+    private int speed = 30;
     public Bullet (int x, int y, ID id, Handler handler, int mouseX, int mouseY){
         super(x , y, id);
         this.handler= handler;
 
-        velX = (mouseX - x) / 10;
-        velY = (mouseY - y) / 10;
+        int deltaX = mouseX - x;
+        int deltaY = mouseY - y;
+        direction = Math.atan2(deltaY, deltaX);
+      
     }
     
     public void tick(){
-        x += velX;
-        y += velY;
+        x = (int)(x + (speed * Math.cos(direction)));
+        y = (int)(y + (speed * Math.sin(direction)));
+
+        for(int i=0; i < handler.object.size(); i++){
+            GameObject tempObject = handler.object.get(i);
+
+            if (tempObject.getId() == ID.Block) {
+                if (getBounds().intersects(tempObject.getBounds())){
+                    handler.removeOject(this);
+                }
+            }
+        } 
     }
 
 
