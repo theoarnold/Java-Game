@@ -1,1 +1,1 @@
-Top down game using powered by a custom made game engine in java.
+Top down game powered by a custom made game engine in java.
