@@ -3,7 +3,7 @@ import java.awt.Graphics;
 public class Handler {
     LinkedList<GameObject> object = new LinkedList<GameObject>();
 
-    private boolean up = false, down = false, right = false, left = false;
+    private boolean up = false, down = false, right = false, left = false, run = false;
 
 public void tick(){
     for(int i = 0; i < object.size(); i++){
@@ -71,8 +71,13 @@ public boolean isLeft() {
 public void setLeft(boolean left) {
 	this.left = left;
 }
+public boolean isRun() {
+	return run;
+}
 
-
+public void setRun(boolean run) {
+	this.run = run;
+}
 
 
 

@@ -6,3 +6,8 @@
 /KeyInput.class
 /Player.class
 /Window.class
+/Block.class
+/Bullet.class
+/Camera.class
+/ImgLoader.class
+/MouseInput.class

@@ -5,7 +5,6 @@ import java.awt.Color;
 public class Box extends GameObject{
     public Box (int x, int y, ID id){
         super(x , y, id);
-        velX = 1; 
     }
     
     public void tick(){

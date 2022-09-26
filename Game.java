@@ -13,7 +13,6 @@ public class Game extends Canvas implements Runnable{
     private Thread thread;
     private Handler handler;
     private Camera camera;
-
     private BufferedImage map = null;
 
     public Game(){
@@ -97,7 +96,7 @@ public class Game extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2 = (Graphics2D) g;
         
-        g.setColor(Color.green);
+        g.setColor(Color.lightGray);
         g.fillRect(0, 0, 1000, 563);
 
         g2.translate(-camera.getX(), -camera.getY());
@@ -131,6 +130,9 @@ public class Game extends Canvas implements Runnable{
                 }
                 if (blue == 255){
                     handler.addObject(new Player(xx*32, yy*32, ID.Player, handler));  
+                }
+                if (blue == 254){
+                    handler.addObject(new Zombie(xx*32, yy*32, ID.Zombie, handler));  
                 }
             }
         }
